@@ -32,7 +32,31 @@
 
 	标准规定:无论何种情况，只要a和b都是整数值，便可通过a-(a/b)*b来计算a%b
 	
+五.const用法
+	1.int sum(const int ar[],int n);
+	该函数不能修改ar指向的数组中的内容
 	
+	const int days[2]={0,0};
+	不能修改数组元素的值
 	
+	指向const的指针不能用于改变值
+.eg. double rate[2]={0,0};
+	 const double *pd = rate;	//pd指向数组首元素，不能用pd来更改它所指向的值
+	 *pd = 28.99;	//不允许
+	 *pd[2] = 0.05;	//不允许
+	 
+	 
+	声明并初始化一个不能指向别处的指针
+	double rate[2]={0,0};
+	double *const pd = rate;//指向数组的开始，不能在指向别处
 	
-
+	const double *const pc = rate;//该指针既不能更改它所指向的地址，也不能更改指向地址的值
+	
+六.指针和多维数组
+	1.int zippo[4][2];	/* 内含int数组的数组 */
+	因为zippo数组首元素的地址，因此 zippo的值等于&zippo[0];
+	zippo[0]是内含两个元素的数组，所以zippo[0]和它的首元素的地址(&zippo[0][0])相同
+	
+七.指向多维数组的指针
+	int (*pz)[2];	//pz指向一个内含int类型值的数组
+	int * pax[2];	//pax是一个内含两个指针的元素，每个元素都指向int的指针
